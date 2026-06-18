@@ -1256,3 +1256,16 @@ section{padding:120px 0;position:relative}
 @media (max-width:1000px){
   .hcta-icon img.line-ico{width:24px;height:24px}
 }
+
+/* ===========================================================
+   モバイル微調整（2026-06-19）
+   ・初回特典「¥5,000（税込）」を1行に
+   ・MESSAGE見出し「…方へ。」が孤立せず2行に収まるサイズへ
+   =========================================================== */
+@media (max-width:720px){
+  .offer-price{flex-wrap:wrap;justify-content:center;gap:8px 12px}
+  .offer-was{white-space:nowrap}
+  .offer-now{white-space:nowrap;font-size:34px}
+  .offer-now-tax{white-space:nowrap}
+  .message .sec-title{font-size:24px;letter-spacing:.01em}
+}
