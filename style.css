@@ -1269,3 +1269,130 @@ section{padding:120px 0;position:relative}
   .offer-now-tax{white-space:nowrap}
   .message .sec-title{font-size:24px;letter-spacing:.01em}
 }
+
+/* ===========================================================
+   MOTION POLISH II — 2026-06-23（陽光モート／トップへ戻る／声カードの浮き）
+   ・ヒーローに金色の光の粒がふわりと舞い上がる（朝日トーンに調和）
+   ・スクロールで現れる「トップへ戻る」フロートボタン（全ページ）
+   ・お客様の声カードがホバーで静かに浮く
+   いずれも prefers-reduced-motion で自動オフ
+   =========================================================== */
+
+/* ---- ヒーロー：陽光に舞う金色の光の粒（JSが .hero-motes を生成） ---- */
+.hero-motes{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.hero-motes span{
+  position:absolute;bottom:-10px;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,rgba(255,246,220,.95),rgba(255,214,140,.5) 60%,transparent 72%);
+  opacity:0;filter:blur(.3px);
+  animation:moteRise linear infinite;
+}
+@keyframes moteRise{
+  0%{opacity:0;transform:translateY(0) translateX(0) scale(.7)}
+  12%{opacity:.85}
+  82%{opacity:.6}
+  100%{opacity:0;transform:translateY(-82vh) translateX(20px) scale(1.05)}
+}
+@media (prefers-reduced-motion:reduce){.hero-motes{display:none}}
+
+/* ---- 「トップへ戻る」（JSが #toTop を生成） ---- */
+.to-top{
+  position:fixed;right:24px;bottom:28px;z-index:180;
+  width:48px;height:48px;border-radius:50%;
+  background:rgba(255,253,248,.92);color:var(--c-accent-dark);
+  border:1px solid var(--c-line);box-shadow:0 8px 22px rgba(42,38,34,.16);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;font-size:19px;line-height:1;
+  opacity:0;transform:translateY(14px) scale(.9);pointer-events:none;
+  transition:opacity .35s var(--ease),transform .35s var(--ease),background-color .25s,color .25s,border-color .25s;
+}
+.to-top.show{opacity:1;transform:none;pointer-events:auto}
+.to-top:hover{background:var(--c-accent);color:#fff;border-color:var(--c-accent)}
+/* モバイルは下部CTAバーに重ならない高さへ */
+@media (max-width:720px){.to-top{right:14px;bottom:86px;width:44px;height:44px;font-size:17px}}
+
+/* ---- お客様の声カード：ホバーで静かに浮く ---- */
+.voice-card{transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease)}
+.voice-card:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(42,38,34,.12);border-color:var(--c-accent-light)}
+
+/* ===========================================================
+   HERO 刷新 — 施術シーン写真＋「神経整体」を主役に（2026-06-23 改）
+   ・背景：頭部への施術カット。顔をやや左に寄せ、写真は明るく見せる
+   ・暗幕をやめ、温かいクリームのヴェールで全体を明るく／文字は濃色＋白ハロー
+   ・「神経整体」を深緑のビッグタイポで主役化／金茶のEN小見出しと金の罫で品よく強調
+   =========================================================== */
+.hero-media{
+  background-image:url("images/hero-treatment.png");
+  background-position:62% 30%;   /* X を上げて被写体（顔）を画面左へ寄せる */
+}
+/* 暗幕→明るいクリームのヴェール。写真は柔らかく透けつつ、濃色文字が読める明度に */
+.hero-media::after{
+  background:
+    radial-gradient(1100px 560px at 50% -10%, rgba(255,236,190,.40), transparent 60%),
+    linear-gradient(180deg, rgba(252,249,242,.50) 0%, rgba(252,249,242,.42) 45%, rgba(253,250,244,.56) 100%);
+}
+
+/* 上部タグ・サブ文・メタ等を濃色基調へ戻す（明るい背景に合わせる） */
+.hero-tag{
+  color:var(--c-accent-dark);border-color:rgba(139,94,37,.45);
+  background:rgba(255,253,248,.62);text-shadow:none;
+  backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);
+}
+.hero-title .ja{
+  color:#4a4136;
+  text-shadow:0 1px 10px rgba(255,253,248,.85),0 0 2px rgba(255,253,248,.9);
+}
+/* サブの一文は主役を立てるため控えめサイズ＋濃いインク */
+.hero-title .ja.em{
+  margin-top:6px;
+  font-size:clamp(20px,3vw,32px);
+  font-weight:600;line-height:1.5;
+  color:#2a2622;
+  text-shadow:0 1px 10px rgba(255,253,248,.9),0 0 2px rgba(255,253,248,.95);
+}
+.hero-lead{
+  color:#3c352d;
+  text-shadow:0 1px 9px rgba(255,253,248,.9),0 0 2px rgba(255,253,248,.95);
+}
+.hero-meta{border-top-color:rgba(42,38,34,.22);border-bottom-color:rgba(42,38,34,.22)}
+.hero-meta > div{border-right-color:rgba(42,38,34,.18)}
+.hero-meta dt{color:var(--c-text-muted);text-shadow:0 1px 6px rgba(255,253,248,.9)}
+.hero-meta dd{color:var(--c-text);text-shadow:0 1px 6px rgba(255,253,248,.9)}
+.hero-scroll{color:var(--c-accent-dark)}
+.hero-scroll::after{background:rgba(139,94,37,.7)}
+.hero .btn-ghost{color:var(--c-deep);border-color:rgba(58,74,59,.55);background:rgba(255,253,248,.55)}
+.hero .btn-ghost:hover{background:var(--c-deep);color:#fff;border-color:var(--c-deep)}
+
+/* 「神経整体」ビッグタイポ（深緑×白ハローで明るい写真の上でも力強く） */
+.hero-keyword{
+  display:block;
+  margin:20px 0 10px;
+  font-family:var(--font-mincho);
+  font-weight:700;
+  font-size:clamp(54px,10.5vw,124px);
+  line-height:1.02;
+  letter-spacing:.1em;
+  color:#2f3d30;
+  text-shadow:0 2px 16px rgba(255,253,248,.9),0 0 3px rgba(255,253,248,.95),0 6px 26px rgba(60,74,60,.28);
+}
+.hero-keyword .kw-en{
+  display:block;
+  margin-top:18px;
+  font-family:var(--font-jp);
+  font-weight:700;
+  font-size:clamp(10px,1.3vw,13px);
+  letter-spacing:.5em;
+  text-indent:.5em;
+  color:var(--c-accent-dark);
+  text-shadow:0 1px 8px rgba(255,253,248,.9);
+}
+/* キーワード下の金の罫（中央から伸びる） */
+.hero-keyword .kw-en::before{
+  content:"";display:block;width:54px;height:2px;margin:0 auto 14px;
+  background:linear-gradient(90deg,transparent,var(--c-accent) 30%,var(--c-accent) 70%,transparent);
+}
+
+@media (max-width:720px){
+  .hero-media{background-position:66% 28%}
+  .hero-keyword{font-size:clamp(46px,15vw,72px);letter-spacing:.08em;margin:16px 0 8px}
+  .hero-keyword .kw-en{letter-spacing:.4em;margin-top:14px}
+}
