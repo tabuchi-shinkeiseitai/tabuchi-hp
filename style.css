@@ -882,7 +882,7 @@ section{padding:120px 0;position:relative}
 
 /* ---- レスポンシブ微調整 ---- */
 @media (max-width:720px){
-  .hero{min-height:auto;padding:104px 0 72px}
+  .hero{min-height:auto;padding:120px 0 72px}
   .hero-scroll{display:none}
   .band-media{background-attachment:scroll}
   .band-inner{padding:80px 22px}
@@ -1322,7 +1322,7 @@ section{padding:120px 0;position:relative}
    =========================================================== */
 .hero-media{
   background-image:url("images/hero-treatment.png");
-  background-position:62% 30%;   /* X を上げて被写体（顔）を画面左へ寄せる */
+  background-position:center 46%;   /* 縦長写真：顔・手元が中央に来る縦位置 */
 }
 /* 暗幕→明るいクリームのヴェール。写真は柔らかく透けつつ、濃色文字が読める明度に */
 .hero-media::after{
@@ -1392,12 +1392,10 @@ section{padding:120px 0;position:relative}
 }
 
 @media (max-width:720px){
-  /* スマホは横長写真を“引いて”全体が見えるように（余白は写真と同系のクリームでなじませる） */
+  /* スマホは縦長写真をcoverで全面に。被写体（顔・手）が中央に来るよう微調整 */
   .hero-media{
-    background-size:contain;
-    background-repeat:no-repeat;
-    background-position:center top;
-    background-color:#eceae3;
+    background-size:cover;
+    background-position:center 42%;
   }
   .hero-keyword{font-size:clamp(46px,15vw,72px);letter-spacing:.08em;margin:16px 0 8px}
   .hero-keyword .kw-en{letter-spacing:.4em;margin-top:14px}
