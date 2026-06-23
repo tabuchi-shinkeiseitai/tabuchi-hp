@@ -548,6 +548,41 @@ section{padding:120px 0;position:relative}
 }
 
 /* ===========================================================
+   GUIDE / MENU（トップから各ページへの誘導）
+   =========================================================== */
+.guide{background:var(--c-bg-soft)}
+.guide-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:18px;
+}
+.guide-card{
+  display:flex;flex-direction:column;
+  background:var(--c-bg-white);border:1px solid var(--c-line);border-radius:8px;
+  padding:30px 28px;text-decoration:none;color:inherit;position:relative;overflow:hidden;
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease);
+}
+.guide-card::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--c-accent);transform:scaleY(0);transform-origin:top;
+  transition:transform .4s var(--ease);
+}
+.guide-card:hover{
+  transform:translateY(-6px);box-shadow:0 16px 34px rgba(42,38,34,.12);
+  border-color:var(--c-accent-light);
+}
+.guide-card:hover::before{transform:scaleY(1)}
+.g-en{font-size:10px;letter-spacing:.2em;color:var(--c-accent);font-weight:700;margin-bottom:12px}
+.g-title{font-family:var(--font-mincho);font-size:21px;font-weight:600;color:var(--c-text);margin-bottom:10px}
+.g-desc{font-size:13px;line-height:1.7;color:var(--c-text-muted);flex:1}
+.g-arrow{margin-top:18px;align-self:flex-end;color:var(--c-accent);font-size:18px;line-height:1;transition:transform .3s var(--ease)}
+.guide-card:hover .g-arrow{transform:translateX(5px)}
+@media (max-width:720px){
+  .guide-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .guide-card{padding:22px 18px}
+  .g-title{font-size:18px}
+  .g-desc{font-size:12px}
+}
+
+/* ===========================================================
    DIRECTOR
    =========================================================== */
 .director-inner{
