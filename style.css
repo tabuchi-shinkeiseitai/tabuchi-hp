@@ -309,6 +309,13 @@ section{padding:120px 0;position:relative}
    TROUBLES
    =========================================================== */
 .troubles{background:var(--c-bg-soft)}
+.concern-figure{
+  margin:0 auto 56px;max-width:880px;
+  border-radius:12px;overflow:hidden;
+  box-shadow:0 14px 36px rgba(40,30,15,.12);
+}
+.concern-figure img{display:block;width:100%;height:auto}
+@media (max-width:720px){.concern-figure{margin-bottom:40px;border-radius:10px}}
 .trouble-list{
   display:grid;grid-template-columns:repeat(2,1fr);gap:0;
   max-width:840px;margin:0 auto;
