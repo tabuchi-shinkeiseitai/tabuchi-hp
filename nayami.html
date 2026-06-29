@@ -3,9 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="タブチ神経整体院が選ばれる4つの理由。独自の神経整体技術、強い刺激が苦手な方も安心、阪神西宮駅すぐ・駐車場完備、2019年開業の実績。">
-<title>選ばれる理由｜タブチ神経整体院</title>
+<meta name="description" content="お悩み別のご案内。坐骨神経痛をはじめ、お尻から脚のつらさや重だるさに、強く押さない・ボキボキしないソフトタッチの神経整体で向き合います。西宮市・阪神西宮駅すぐ。">
+<title>お悩み別｜タブチ神経整体院｜西宮市・阪神西宮駅すぐ</title>
 <link rel="stylesheet" href="style.css">
+<style>
+  .nayami-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px;margin-top:8px}
+  .nayami-soon{margin-top:40px;padding-top:28px;border-top:1px solid var(--c-line)}
+  .nayami-soon-title{font-size:13px;letter-spacing:.2em;color:var(--c-text-soft);font-weight:700;margin-bottom:16px}
+  .soon-chips{display:flex;flex-wrap:wrap;gap:12px}
+  .soon-chip{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border:1px dashed var(--c-line-strong);border-radius:999px;color:var(--c-text-soft);font-size:14px}
+  .soon-chip::before{content:"準備中";font-size:11px;background:var(--c-bg-soft);color:var(--c-text-muted);padding:2px 8px;border-radius:999px}
+</style>
 </head>
 <body>
 <!-- ========== HEADER ========== -->
@@ -20,8 +28,8 @@
     <nav class="nav" id="siteNav" aria-label="メインナビ">
       <a href="about.html">当院について</a>
       <a href="method.html">神経整体とは</a>
-      <a href="nayami.html">お悩み別</a>
-      <a href="reasons.html" aria-current="page">選ばれる理由</a>
+      <a href="nayami.html" aria-current="page">お悩み別</a>
+      <a href="reasons.html">選ばれる理由</a>
       <a href="price.html">料金</a>
       <a href="flow.html">ご来院の流れ</a>
       <a href="access.html">アクセス</a>
@@ -48,24 +56,55 @@
   <section class="page-hero">
     <div class="page-hero-media" aria-hidden="true"></div>
     <div class="container">
-      <p class="ph-en reveal">REASONS</p>
-      <h1 class="reveal">選ばれる理由。</h1>
-      <p class="ph-lead reveal">数ある整体院の中で、私たちが大切にしていること。</p>
+      <p class="ph-en reveal">CONCERN</p>
+      <h1 class="reveal">お悩み別。</h1>
+      <p class="ph-lead reveal">あなたのつらさに合わせて、ソフトタッチの神経整体で向き合います。</p>
     </div>
   </section>
 
-  <!-- REASONS -->
-  <section class="reasons" id="reasons">
+  <!-- お悩みガイド -->
+  <section class="guide" id="guide">
     <div class="container">
-      <header class="section-head reveal">
-        <p class="sec-en">REASONS</p>
-        <h2 class="sec-title">選ばれる、<br>4つの理由。</h2>
+      <header class="section-head center reveal">
+        <p class="sec-en">MENU</p>
+        <h2 class="sec-title">お悩みから、<br>選んでください。</h2>
+        <p class="sec-lead">気になるお悩みをご覧ください。その他のお悩みも、順次追加してまいります。</p>
       </header>
-      <div class="reason-list">
-        <article class="reason-card reveal"><div class="r-num">REASON / 01</div><h3>独自の「神経整体」技術</h3><p>骨や筋肉ではなく神経に働きかける独自技術。ソフトなタッチで、奥深くまでアプローチします。</p></article>
-        <article class="reason-card reveal"><div class="r-num">REASON / 02</div><h3>強い刺激が苦手な方も安心</h3><p>強く押す・ボキボキする施術は一切いたしません。痛みに敏感な方、ご高齢の方、お子さまにも対応できます。</p></article>
-        <article class="reason-card reveal"><div class="r-num">REASON / 03</div><h3>阪神西宮駅すぐ／駐車場完備</h3><p>電車でも、お車でも通いやすい立地。仕事帰りや、お買い物ついでにも立ち寄りやすい環境です。</p></article>
-        <article class="reason-card reveal"><div class="r-num">REASON / 04</div><h3>2019年開業／確かな実績</h3><p>2019年の開業以来、地域のみなさまに支えていただいています。じっくりと向き合う施術が、私たちの誇りです。</p></article>
+      <div class="nayami-grid">
+        <a class="guide-card reveal" href="sciatica.html">
+          <span class="g-en">SCIATICA</span>
+          <span class="g-title">坐骨神経痛でお悩みの方へ</span>
+          <span class="g-desc">お尻から脚にかけての重だるさ・つらさに、強く押さない神経整体で向き合います。</span>
+          <span class="g-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="guide-card reveal" href="cervical.html">
+          <span class="g-en">CERVICAL</span>
+          <span class="g-title">頸椎ヘルニアでお悩みの方へ</span>
+          <span class="g-desc">首から肩・腕にかけてのつらさ・しびれに、強く押さない神経整体で向き合います。</span>
+          <span class="g-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="guide-card reveal" href="frozen-shoulder.html">
+          <span class="g-en">FROZEN SHOULDER</span>
+          <span class="g-title">四十肩・五十肩でお悩みの方へ</span>
+          <span class="g-desc">肩が上がらない・腕が回らないつらさに、強く押さない神経整体で向き合います。</span>
+          <span class="g-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="guide-card reveal" href="knee-oa.html">
+          <span class="g-en">KNEE</span>
+          <span class="g-title">変形性膝関節症でお悩みの方へ</span>
+          <span class="g-desc">立ち上がり・階段・歩き始めの膝のつらさに、強く押さない神経整体で向き合います。</span>
+          <span class="g-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="nayami-soon reveal">
+        <p class="nayami-soon-title">その他のお悩み（順次公開）</p>
+        <div class="soon-chips">
+          <span class="soon-chip">肩こり・首のつらさ</span>
+          <span class="soon-chip">腰のつらさ</span>
+          <span class="soon-chip">頭の重さ</span>
+          <span class="soon-chip">自律神経のお悩み</span>
+        </div>
       </div>
     </div>
   </section>

@@ -67,6 +67,48 @@
     });
   }
 
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ===== Hero light motes（陽光に舞う金色の光の粒） =====
+  const heroEl = document.querySelector('.hero');
+  if (heroEl && !reduceMotion) {
+    const motes = document.createElement('div');
+    motes.className = 'hero-motes';
+    motes.setAttribute('aria-hidden', 'true');
+    for (let i = 0; i < 16; i++) {
+      const s = document.createElement('span');
+      const size = (4 + Math.random() * 7).toFixed(1) + 'px';
+      s.style.left = (Math.random() * 100).toFixed(2) + '%';
+      s.style.width = size;
+      s.style.height = size;
+      s.style.animationDuration = (11 + Math.random() * 12).toFixed(1) + 's';
+      s.style.animationDelay = (-Math.random() * 16).toFixed(1) + 's';
+      motes.appendChild(s);
+    }
+    heroEl.appendChild(motes);
+  }
+
+  // ===== Back to top（スクロールで現れるフロートボタン） =====
+  const toTop = document.createElement('button');
+  toTop.id = 'toTop';
+  toTop.type = 'button';
+  toTop.className = 'to-top';
+  toTop.setAttribute('aria-label', 'ページ上部へ戻る');
+  toTop.textContent = '↑';
+  document.body.appendChild(toTop);
+  toTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
+  let toTopTick = false;
+  function onToTop() {
+    toTop.classList.toggle('show', window.scrollY > 600);
+    toTopTick = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!toTopTick) { window.requestAnimationFrame(onToTop); toTopTick = true; }
+  }, { passive: true });
+  onToTop();
+
   // ===== Reveal on scroll =====
   const reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
